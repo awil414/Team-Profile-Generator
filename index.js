@@ -1,7 +1,7 @@
 // Node packages needed for this program
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateHTML = require('./src/generateHTML');
+const generateHTML = require('./src/generateHTML.js');
 //const jest = require('jest');
 
 // Team profiles
