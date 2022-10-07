@@ -6,7 +6,7 @@ describe('creates new Engineer',() => {
     
         describe('all engineer methods', () => {
             it('returns all engineer methods objects when called with the "new" keyword ',() => {
-                const engineer = new Employee('Clark Griswold', 777, 'cwg@vaction.com', 'clark-griswold');
+                const engineer = new Engineer('Clark Griswold', 777, 'cwg@vaction.com', 'clark-griswold');
                 expect(engineer.getName()).toBe(engineer.name);
                 expect(engineer.getId()).toBe(engineer.id);
                 expect(engineer.getEmail()).toBe(engineer.email);
