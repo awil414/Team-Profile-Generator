@@ -1,6 +1,29 @@
 {
   "dependencies": {
-    "inquirer": "^8.2.4",
     "jest": "^29.1.2"
-  }
+  },
+  "name": "team-profile-generator",
+  "description": "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awil414/Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awil414/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/awil414/Team-Profile-Generator#readme"
 }
