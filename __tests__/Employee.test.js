@@ -12,6 +12,7 @@ describe('creates new Employee',() => {
     })
 })
 
+// Do I need to make these each individual tests?
 describe('checks all methods for Employee class',() => {
     
     describe('all employee methods', () => {
