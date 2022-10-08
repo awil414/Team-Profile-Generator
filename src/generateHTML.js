@@ -57,3 +57,56 @@ const generateIntern = intern => {
     </div>  
     `;
 }
+
+// Function to push data to page -- NEED TO DO!
+generateHTML = (data) => {
+
+    const profileCards = 
+
+    const generateTeam = generateTeamPage(profileCards);
+    return generateTeam;
+
+}
+
+
+// Function to generate HTML page
+generateTeamPage = (profileCards) => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- ==== Link to Bootstrap ==== -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <!-- ==== Link to Fontawesome ==== -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+        <!-- ==== Link to CSS ==== -->
+        <link rel="stylesheet" href="./assets/style.css" />
+        <title>Team Profile</title>
+    </head>     
+    <body>
+        <header>
+            <nav class="navbar navbar-light bg-light" id="navbar">
+                <span class="navbar-brand mb-0 h1 w-100 text-center" id+"navbar-text">Team Profile</span>
+            </nav>      
+        </header>
+        <section>
+            <div class="container">
+                <div class="row justify-content-center" id="profile-cards">
+                
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+            integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+            crossorigin="anonymous"></script>
+        <script src="./assets/script.js"></script>
+    </body>
+
+    </html>
+    `
+}
