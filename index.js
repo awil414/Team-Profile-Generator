@@ -16,7 +16,7 @@ const teamArr = [];
 // Array of questions for manager
 const init = () => addManager();
 
-addManager = () => {
+addManager = () => 
     inquirer.prompt ([
         {
             type: 'input',
@@ -43,11 +43,12 @@ addManager = () => {
         manager = new Manager(manager.name, id, email, officeNumber)
         teamArr.push(manager); 
         console.log(manager);
-    })
-};
+        addEmployee();
+    });
 
-addEmployee = ()=> {
-    console.log('Next add team employees');
+
+addEmployee = () => 
+    console.log('Add team employee.');
     inquirer.prompt([
         {
             type: 'list',
@@ -68,14 +69,43 @@ addEmployee = ()=> {
         {   type: 'input',
             message: "Please enter the employee's email.",
             name: 'email'
+        },
+        {
+            type: 'input',
+            message: "Please enter the employee's github username.",
+            name: 'github',
+            when: (input) => input.role === 'Engineer'
+        },
+        {
+            type: 'input',
+            message: "Please enter the intern's school.",
+            name: 'school',
+            when: (input) => input.role === 'Intern'
+        },
+        {
+            type: 'confirm',
+            message: "Would you like to add more team members?",
+            name: 'addMore',
+            default: false
         }
     ])
+    .then(employee => {
+        let employee;
+        if (role === 'Engineer') {
+            employee = new Engineer(employee.name, id, email, github);
+            console.log(employee);
+        } else if (role === 'Intern') {
+            employee = new Intern(employee.name, id, email, school);
+            console.log(employee);
+        }
+        teamArr.push(employee); 
+        if (addMore) {
+            return addEmployee(teamArr);
+        }
+        teamArr;
+    });
+
     
-
-
-}
-
-
 
 // addEmployee = () => {
     inquirer.prompt ([{
@@ -89,12 +119,9 @@ addEmployee = ()=> {
         ]   
     }])
     .then
-//}
-    
-    
-    
 
-// Function to generate HTML file using file system
+    
+// Function to generate HTML 
 const writeToFile = data => {
     fs.writeFile('./dist/index.html', data, err => {
         if (err) {
@@ -104,15 +131,11 @@ const writeToFile = data => {
     });
 }
 
-// Function to initialize app
-function init() {
-    inquirer.prompt(questions).then((inquirerResponses => {
-            console.log('Generating Team Profile...');
-            writeToFile('./dist/index.html', generateHTML({ ...inquirerResponses}))
-        }));
-};
-
 // Function call to initialize app
 init()
     .then(addEmployee)
-    ;
+    .then(teamArr => {
+        console.log('Generating Team Profile...');
+        writeToFile('./dist/index.html', generateHTML(teamArr));
+    });
+    
