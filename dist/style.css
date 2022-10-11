@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:row;
+    background: lightgrey;
+}
+.nav {
+    color: white;
+    text-align: center;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
