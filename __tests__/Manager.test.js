@@ -12,7 +12,7 @@ describe('creates new manager',() => {
                 expect(manager.getEmail()).toBe(manager.email);
                 expect(manager.getRole()).toBe('Manager');
                 // why isn't there a function for officeNumber?
-                expect(manager.officeNumber()).toBe(officeNumber);
+                expect(manager.officeNumber).toBe(officeNumber);
             })
         })
     })

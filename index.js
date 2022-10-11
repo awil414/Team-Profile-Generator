@@ -3,10 +3,10 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 // Link to generated HTML page
 const generateHTML = require('./src/generateHTML.js');
-//const jest = require('jest');
+
 
 // Team profiles
-const Employee = require('./lib/Employee');
+
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
@@ -16,8 +16,8 @@ const teamArr = [];
 // Array of questions for manager
 const init = () => addManager();
 
-addManager = () => 
-    inquirer.prompt ([
+const addManager = () => {
+ return inquirer.prompt ([
         {
             type: 'input',
             message: "Please enter team manager's name.",
@@ -40,16 +40,16 @@ addManager = () =>
         },
     ]) 
     .then(manager => {
-        manager = new Manager(manager.name, id, email, officeNumber)
+        manager = new Manager(manager.name, manager.id, manager.email, manager.officeNumber)
         teamArr.push(manager); 
         console.log(manager);
-        addEmployee();
     });
+}
 
 
-addEmployee = () => 
+const addEmployee = () => {
     console.log('Add team employee.');
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             type: 'list',
             message: 'What type of team member would you like to add?',
@@ -89,36 +89,39 @@ addEmployee = () =>
             default: false
         }
     ])
-    .then(employee => {
+    .then(answers => {
         let employee;
-        if (role === 'Engineer') {
-            employee = new Engineer(employee.name, id, email, github);
+        if (answers.role === 'Engineer') {
+            employee = new Engineer(answers.name, answers.id, answers.email, answers.github);
             console.log(employee);
-        } else if (role === 'Intern') {
-            employee = new Intern(employee.name, id, email, school);
+        } else if (answers.role === 'Intern') {
+            employee = new Intern(answers.name, answers.id, answers.email, answers.school);
             console.log(employee);
         }
         teamArr.push(employee); 
-        if (addMore) {
+        if (answers.addMore) {
             return addEmployee(teamArr);
+        } else {
+            return teamArr;
         }
-        teamArr;
+        
     });
+}
 
     
 
 // addEmployee = () => {
-    inquirer.prompt ([{
-        type: 'list',
-        message: 'What type of team member would you like to add?',
-        name: 'employeeType',
-        choices: [
-            {name: 'Engineer', value: 'addEngineer'},
-            {name: 'Intern', value: 'addIntern'},
-            {name: 'DONE', value: 'done'}
-        ]   
-    }])
-    .then
+    // inquirer.prompt ([{
+    //     type: 'list',
+    //     message: 'What type of team member would you like to add?',
+    //     name: 'employeeType',
+    //     choices: [
+    //         {name: 'Engineer', value: 'addEngineer'},
+    //         {name: 'Intern', value: 'addIntern'},
+    //         {name: 'DONE', value: 'done'}
+    //     ]   
+    // }])
+    // .then
 
     
 // Function to generate HTML 
@@ -134,8 +137,8 @@ const writeToFile = data => {
 // Function call to initialize app
 init()
     .then(addEmployee)
-    .then(teamArr => {
+    .then(() => {
         console.log('Generating Team Profile...');
-        writeToFile('./dist/index.html', generateHTML(teamArr));
+        writeToFile(generateHTML(teamArr));
     });
     

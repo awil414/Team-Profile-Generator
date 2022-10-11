@@ -5,7 +5,7 @@ const generateManager = manager => {
         <div class="card h-100">
             <div class="card-header">
             <h3> ${manager.name}>Card title</h3>
-            <h4> Role: ${manager.role}</h4>
+            <h4> Role: ${manager.getRole()}</h4>
         </div>
         <div class="card-body">
             <ul class="list-group">
@@ -25,7 +25,7 @@ const generateEngineer = engineer => {
         <div class="card h-100">
             <div class="card-header">
             <h3> ${engineer.name}>Card title</h3>
-            <h4> Role: ${engineer.role}</h4>
+            <h4> Role: ${engineer.getRole()}</h4>
         </div>
         <div class="card-body">
             <ul class="list-group">
@@ -59,18 +59,33 @@ const generateIntern = intern => {
 }
 
 // Function to push data to page -- NEED TO DO!
-generateHTML = (data) => {
+generateTeamPage = (teamArr) => {
 
-    const profileCards = 
+    let profileCards = [];
 
-    const generateTeam = generateTeamPage(profileCards);
-    return generateTeam;
+    for (i = 0; i < teamArr.length; i++) {
+        if (teamArr[i].getRole() === 'Manager') {
+            profileCards = profileCards + generateManager(teamArr[i])
+        }
+        if
+        (teamArr[i].getRole() === 'Engineer') {
+            profileCards = profileCards + generateEngineer(teamArr[i])
+        }
+        if
+        (teamArr[i].getRole() === 'Intern') {
+            profileCards = profileCards + generateIntern(teamArr[i])
+        }
+    } return profileCards
+};
 
-}
+    //const generateTeam = generateTeamPage(profileCards);
+    //return generateTeam;
+
+//}
 
 
 // Function to generate HTML page
-generateTeamPage = (profileCards) => {
+generateHTML = (teamArr) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -85,7 +100,7 @@ generateTeamPage = (profileCards) => {
             integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
         <!-- ==== Link to CSS ==== -->
         <link rel="stylesheet" href="./assets/style.css" />
-        <title>Team Profile</title>
+        <title> My Team </title>
     </head>     
     <body>
         <header>
@@ -96,7 +111,9 @@ generateTeamPage = (profileCards) => {
         <section>
             <div class="container">
                 <div class="row justify-content-center" id="profile-cards">
-                
+                ${
+                    generateTeamPage(teamArr)
+                }
                 </div>
             </div>
         </section>
@@ -110,3 +127,5 @@ generateTeamPage = (profileCards) => {
     </html>
     `
 }
+
+module.exports = generateHTML;
