@@ -2,11 +2,10 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-<!-- A quality README offers developers the opportunity to explain and showcase what their application does, highlights technologies used, and allows insight on future implementations. With this professional README generator the user no longer needs to create one from scratch, allowing for more efficient use of time. Simply answer a few prompt questions from the command line, and the README will self-generate. -->
+This is a command-line application that generates a simple team profile HTML file based on user's responses to the command-line prompts. The user first inputs information about the team manager, then has the option to add engineers and interns, as needed. 
 
 ## Table of Contents
 * [Installation](#Installation)
-* [Usage](#Usage)
 * [Credits](#Credits)
 * [License](#License)
 
@@ -18,11 +17,8 @@ To install necessary dependencies, run the following command:
 
 
 
-<!-- To initialize this project, copy the repo SSH key, clone it into your repo, and install Node Package Manager using "npm init -y". Next, use command "npm install --save inquirer@^8.0.0" to get npm's inquirer package.  -->
+To initialize this project, copy the repo SSH key, clone it into your repo. Next, use command "npm install --save inquirer@^8.0.0" and "npm install jest" to get the required dependencies.  
 
-
-
-## Usage
 
 
 ## License
@@ -37,7 +33,7 @@ This project was developed by Amber Wilson.
 To run tests, run the following command:
 
 ```
-npm test
+npm run test
 ```
 
 ## Questions
