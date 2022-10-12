@@ -23,6 +23,10 @@ To initialize this project, copy the repo SSH key, clone it into your repo. Next
 
 
 ## Usage
+<img width="1280" alt="Screen Shot 2022-10-11 at 9 36 03 PM" src="https://user-images.githubusercontent.com/109228469/195236375-c8e3814f-b704-424f-9a54-6b92e1394683.png">
+
+link to demo video:
+https://drive.google.com/file/d/1Rjmno06ZEqpg33E1alUTvQntCpY-kftG/view
 
 
 ## License
