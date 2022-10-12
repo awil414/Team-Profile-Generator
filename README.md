@@ -6,6 +6,7 @@ This is a command-line application that generates a simple team profile HTML fil
 
 ## Table of Contents
 * [Installation](#Installation)
+* [Usage](#Usage)
 * [Credits](#Credits)
 * [License](#License)
 
@@ -19,6 +20,9 @@ To install necessary dependencies, run the following command:
 
 To initialize this project, copy the repo SSH key, clone it into your repo. Next, use command "npm install --save inquirer@^8.0.0" and "npm install jest" to get the required dependencies.  
 
+
+
+## Usage
 
 
 ## License
